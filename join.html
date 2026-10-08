@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join your family on Folkguard</title>
+<meta name="description" content="Someone in your family invited you to Folkguard.">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<header><img src="icon.svg" alt=""><a href="./">Folkguard</a></header>
+<h1>Your family invited you to Folkguard.</h1>
+<p class="lede">Folkguard tells you if a text, email, or screenshot is a scam. It's free for you.</p>
+<div class="card">
+<p><strong>1.</strong> Get Folkguard from the App Store.</p>
+<p><a class="button" href="https://apps.apple.com/us/search?term=folkguard">Get Folkguard</a></p>
+<p><strong>2.</strong> Then tap your invite link again, or tap here:</p>
+<p><a class="button secondary" id="open" href="support">Open my invite in Folkguard</a></p>
+</div>
+<p>You'll need to be signed in to iCloud in the Settings app. There's no account to make and no password.</p>
+<script>
+  // Only ever link to a real iCloud share, never anywhere else.
+  (function () {
+    var s = new URLSearchParams(location.search).get("s");
+    try {
+      var u = new URL(s);
+      if (u.protocol === "https:" && (u.hostname === "www.icloud.com" || u.hostname === "icloud.com") && u.pathname.indexOf("/share/") === 0) {
+        document.getElementById("open").href = u.href;
+      }
+    } catch (e) {}
+  })();
+</script>
+<footer><a href="./">Home</a><a href="support">Support</a><a href="privacy">Privacy</a><p>© 2026 Cole Stegman. Folkguard gives safety guidance. It does not block messages or calls.</p></footer>
+</main></body></html>
